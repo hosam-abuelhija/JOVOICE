@@ -1,0 +1,105 @@
+﻿@model JOVOICE.Models.LocalCandidate
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LocalCandidate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.national_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.national_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.listname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.listname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type_of_chair)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type_of_chair)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birthdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.votes_counter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.votes_counter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.religion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.religion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_local_vote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_local_vote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.electionarea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.electionarea)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

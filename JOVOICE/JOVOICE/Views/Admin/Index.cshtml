@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div style="display: flex; justify-content:space-evenly">
+    <div class="col-sm-12 col-xl-6">
+        <div class="bg-light rounded h-100 p-4" style="background-color: #e4ecff !important;">
+            <h6 class="mb-4">نسب الاقتراع في الدوائر المحلية</h6>
+            <canvas id="bar-chart"></canvas>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-xl-4">
+        <div class="h-100 bg-light rounded p-4" style="background-color: #e4ecff !important;">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Calender</h6>
+                <a href="">Show All</a>
+            </div>
+            <div id="calender"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        var ctx4 = $("#bar-chart").get(0).getContext("2d");
+        var myChart4 = new Chart(ctx4, {
+            type: "bar",
+            data: {
+                labels: ["اربد الاولى", "اربد الثانية", "المفرق", "عمان الاولى", "عمان الثانية"],
+                datasets: [{
+                    backgroundColor: [
+                        "rgba(0, 156, 255, .7)",
+                        "rgba(0, 156, 255, .6)",
+                        "rgba(0, 156, 255, .5)",
+                        "rgba(0, 156, 255, .4)",
+                        "rgba(0, 156, 255, .3)"
+                    ],
+                    data: [@TempData["localPercentIrbid1"], @TempData["localPercentIrbid2"], @TempData["localPercentMafraq"], 79, 83]
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+}

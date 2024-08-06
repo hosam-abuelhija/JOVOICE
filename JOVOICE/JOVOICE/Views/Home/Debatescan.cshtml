@@ -1,0 +1,39 @@
+﻿@model IEnumerable<JOVOICE.Models.Debate>
+@{
+    ViewBag.Title = "Debatescan";
+    Layout = "~/Views/Shared/_LayoutPageUserNotlogged.cshtml";
+}
+
+<style>
+    .office-item {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .office-img img {
+        width: 100%;
+        height: 250px; /* Set the desired height */
+        object-fit: cover; /* Ensures the image covers the entire area without stretching */
+    }
+
+    .office-item.disabled {
+        pointer-events: none;
+        opacity: 0.6;
+        /* Add any additional styles for disabled cards */
+    }
+</style>
+
+@foreach (var row in Model)
+{
+    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="office-item p-4 ">
+            <div class="office-img mb-4">
+                <h4 class="mb-2">@row.time</h4>
+                <h4 class="mb-2">@row.areaelection</h4>
+            </div>
+            <div class="office-content d-flex flex-column">
+                <h4 class="mb-2">@row.listname</h4>
+            </div>
+        </div>
+    </div>
+}

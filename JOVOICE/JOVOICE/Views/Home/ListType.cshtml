@@ -1,0 +1,158 @@
+﻿@model JOVOICE.Models.User
+@{
+    ViewBag.Title = "ListType";
+    var VoteLocal = Convert.ToInt32(Session["VoteLocal"]);
+    var VoteParty = Convert.ToInt32(Session["VoteParty"]);
+    Layout = "~/Views/Shared/_LayoutPageUserlogged.cshtml";
+
+}
+
+<style>
+    .country-name {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .row.g-4 {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+</head>
+
+<body>
+    <!-- Countries We Offer Start -->
+    <div class="container-fluid country overflow-hidden py-5">
+        <div class="container">
+            <div class="section-title text-center wow fadeInUp"
+                 data-wow-delay="0.1s"
+                 style="margin-bottom: 70px">
+                <div class="sub-style">
+                    <h5 class="sub-title text-primary px-3">الهيئةالمستقلة للإنتخاب</h5>
+                </div>
+                <h1 class="display-5 mb-4">القوائم الإنتخابية</h1>
+                <p class="mb-0">اختر نوع القائمة</p>
+            </div>
+            <div class="row g-4 text-center">
+                @if (VoteLocal == 0)
+                {
+                    <div class="col-lg-6 col-xl-3 mb-5 mb-xl-0 wow fadeInUp justify-content-center"
+                         data-wow-delay="0.1s">
+                        <div class="country-item">
+                            <div class="rounded overflow-hidden">
+                                <img src="~/Content/img/electionImages/local.png"
+                                     class="img-fluid w-100 rounded"
+                                     alt="Image" />
+                            </div>
+                            <div class="country-flag">
+                                <img src="~/Content/img/electionImages/Jordan_logo.jpg"
+                                     class="img-fluid rounded-circle"
+                                     alt="Image" />
+                            </div>
+                            <div class="country-name">
+                                @if (ViewBag.electionarea == "اربد الاولى")
+                                {
+                                    @Html.ActionLink("القائمة المحلية", "firstIrbidLocal", "Home", null, new { @class = "text-white fs-4" })
+                                }
+                                else if (ViewBag.electionarea == "اربد الثانية")
+                                {
+                                    @Html.ActionLink("القائمة المحلية", "secondIrbidLocal", "Home", null, new { @class = "text-white fs-4" })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("القائمة المحلية", "MafraqLocal", "Home", null, new { @class = "text-white fs-4" })
+                                }
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    @*<div class="col-lg-6 col-xl-3 mb-5 mb-xl-0 wow fadeInUp justify-content-center"
+                         data-wow-delay="0.1s">
+                        <div class="country-item disabled">
+                            <div class="rounded overflow-hidden">
+                                <img src="~/Content/img/electionImages/local.png"
+                                     class="img-fluid w-100 rounded"
+                                     alt="Image" />
+                            </div>
+                            <div class="country-flag">
+                                <img src="~/Content/img/electionImages/Jordan_logo.jpg"
+                                     class="img-fluid rounded-circle"
+                                     alt="Image" />
+                            </div>
+                            <div class="country-name">
+                                @if (ViewBag.electionarea == "اربد الاولى")
+                                {
+                                    @Html.ActionLink("القائمة المحلية", "firstIrbidLocal", "Home", null, new { @class = "text-white fs-4" })
+                                }
+                                else if (ViewBag.electionarea == "اربد الثانية")
+                                {
+                                    @Html.ActionLink("القائمة المحلية", "secondIrbidLocal", "Home", null, new { @class = "text-white fs-4" })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("القائمة المحلية", "MafraqLocal", "Home", null, new { @class = "text-white fs-4" })
+                                }
+
+                            </div>
+                        </div>
+                    </div>*@
+                }
+
+                @if (VoteParty == 0)
+                {
+                    <div class="col-lg-6 col-xl-3 mb-5 mb-xl-0 wow fadeInUp justify-content-center"
+                         data-wow-delay="0.1s">
+                        <div class="country-item">
+                            <div class="rounded overflow-hidden">
+                                <img src="~/Content/img/electionImages/party.png"
+                                     class="img-fluid w-100 rounded"
+                                     alt="Image" />
+                            </div>
+                            <div class="country-flag">
+                                <img src="~/Content/img/electionImages/Jordan_logo.jpg"
+                                     class="img-fluid rounded-circle"
+                                     alt="Image" />
+                            </div>
+                            <div class="country-name">
+                                @Html.ActionLink("القائمة الحزبية", "Party", "Home", null, new { @class = "text-white fs-4" });
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    @*<div class="col-lg-6 col-xl-3 mb-5 mb-xl-0 wow fadeInUp justify-content-center disabled"
+                         data-wow-delay="0.1s">
+                        <div class="country-item disabled">
+                            <div class="rounded overflow-hidden">
+                                <img src="~/Content/img/electionImages/party.png"
+                                     class="img-fluid w-100 rounded"
+                                     alt="Image" />
+                            </div>
+                            <div class="country-flag">
+                                <img src="~/Content/img/electionImages/Jordan_logo.jpg"
+                                     class="img-fluid rounded-circle"
+                                     alt="Image" />
+                            </div>
+                            <div class="country-name">
+                                @Html.ActionLink("القائمة الحزبية", "Party", "Home", null, new { @class = "text-white fs-4" });
+                            </div>
+                        </div>
+                    </div>*@
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Countries We Offer End -->
+

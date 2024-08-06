@@ -1,0 +1,211 @@
+﻿@model JOVOICE.Models.TempPartyCandidateViewModel
+
+@{
+    ViewBag.Title = "الترشح للقائمة الحزبية";
+    Layout = "~/Views/Shared/_LayoutPage1gh.cshtml";
+}
+
+<head>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        input,
+        textarea {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: #333;
+            display: block;
+            text-align: right;
+        }
+
+        .btn-send {
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: 100%;
+            margin-left: 3px;
+        }
+
+        .btn-success {
+            background-color: #e02454;
+            border-color: #e02454;
+            border-radius: 50rem;
+        }
+
+            .btn-success:hover {
+                background-color: #003a66;
+                border-color: #ff5050;
+            }
+
+        .help-block.with-errors {
+            color: #ff5050;
+            margin-top: 5px;
+        }
+
+        .card {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        th, td {
+            text-align: right;
+        }
+    </style>
+</head>
+
+
+<div class="container-fluid service overflow-hidden py-5">
+    <div class="container py-5">
+        <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="sub-style">
+                <h5 class="sub-title text-primary px-3">طلب الترشح للقوائم الحزبية</h5>
+            </div>
+            <h1 class="display-5 mb-4">نموذج تقديم طلب الترشح للقوائم العامة (الحزبية)</h1>
+            <p class="mb-0">
+                نحن هنا لتقديم الدعم الكامل في عملية الترشح للقوائم الحزبية في الانتخابات النيابية الأردنية.
+                يمكنك ملء النموذج أدناه لتقديم طلبك والترشح بنجاح ضمن القوائم العامة
+            </p>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <div class="card mt-2 mx-auto p-4 bg-light">
+                        <div class="card-body bg-light">
+
+
+                            @using (Html.BeginForm("Create_ghb", "TempPartyCandidates", FormMethod.Post, new { @class = "form-horizontal" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.ElectionArea, "الدائرة الانتخابية", new { @class = "control-label" })
+                                                @Html.EditorFor(m => m.ElectionArea, new { htmlAttributes = new { @class = "form-control", placeholder = "يرجى إدخال الدائرة الانتخابية" } })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.City, "المحافظة", new { @class = "control-label" })
+                                                @Html.EditorFor(m => m.City, new { htmlAttributes = new { @class = "form-control", placeholder = "يرجى إدخال المحافظة" } })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.PartyName, "اسم الحزب", new { @class = "control-label" })
+                                                @Html.EditorFor(m => m.PartyName, new { htmlAttributes = new { @class = "form-control", placeholder = "يرجى إدخال اسم الحزب" } })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>البريد الإلكتروني</th>
+                                                            <th>تاريخ الميلاد</th>
+                                                            <th>الديانة</th>
+                                                            <th>الجنس</th>
+                                                            <th>الرقم الوطني</th>
+                                                            <th>الاسم</th>
+                                                            <th>التسلسل</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @for (int i = 0; i < Model.Candidates.Count; i++)
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        @Html.EditorFor(m => m.Candidates[i].email, new { htmlAttributes = new { @class = "form-control", placeholder = "البريد الإلكتروني" } })
+                                                                        @Html.ValidationMessageFor(m => m.Candidates[i].email, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        @Html.EditorFor(m => m.Candidates[i].birthdate, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                                                                        @Html.ValidationMessageFor(m => m.Candidates[i].birthdate, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        @Html.DropDownList($"Candidates[{i}].religion", new SelectList(new List<SelectListItem>
+                                                                        {
+                                                                            new SelectListItem { Text = "اختر الديانة", Value = "", Disabled = true },
+                                                                            new SelectListItem { Text = "مسلم", Value = "مسلم" },
+                                                                            new SelectListItem { Text = "مسيحي", Value = "مسيحي" },
+                                                                            new SelectListItem { Text = "درزي", Value = "درزي" },
+                                                                            new SelectListItem { Text = "غير ذلك", Value = "غير ذلك" }
+                                                                        }, "Value", "Text", Model.Candidates[i].religion), new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(m => m.Candidates[i].religion, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        @Html.DropDownList($"Candidates[{i}].gender", new SelectList(new List<SelectListItem>
+                                                                        {
+                                                                            new SelectListItem { Text = "اختر الجنس", Value = "", Disabled = true },
+                                                                            new SelectListItem { Text = "ذكر", Value = "ذكر" },
+                                                                            new SelectListItem { Text = "أنثى", Value = "أنثى" }
+                                                                        }, "Value", "Text", Model.Candidates[i].gender), new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(m => m.Candidates[i].gender, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        @Html.EditorFor(m => m.Candidates[i].national_id, new { htmlAttributes = new { @class = "form-control", placeholder = "الرقم الوطني" } })
+                                                                        @Html.ValidationMessageFor(m => m.Candidates[i].national_id, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        @Html.EditorFor(m => m.Candidates[i].candidatename, new { htmlAttributes = new { @class = "form-control", placeholder = "الاسم" } })
+                                                                        @Html.ValidationMessageFor(m => m.Candidates[i].candidatename, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </td>
+                                                                <td>@(i + 1)</td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <button id="sendBtn" type="submit" class="btn btn-success btn-send pt-2 btn-block">إرسال النموذج</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div> <!-- /.8 -->
+                </div> <!-- /.row-->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("sendBtn").onclick = function () {
+            window.alert("تم إرسال النموذج سوف يتم التواصل معم بأقرب وقت")
+        }
+    </script>
+}

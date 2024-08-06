@@ -1,0 +1,86 @@
+﻿@model IEnumerable<JOVOICE.Models.TempPartyCandidate>
+
+@{
+    ViewBag.Title = "Party Lists Applications";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Party Lists Applications</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.national_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.candidatename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.electionarea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.partyname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.birthdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.religion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ordercandidate)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.national_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.candidatename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.electionarea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.partyname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.birthdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.religion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ordercandidate)
+        </td>
+
+
+        <td>
+            <button type="submit" name="approvedListId" value="@item.id" class="btn btn-primary"> Accept </button>
+            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-secondary" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

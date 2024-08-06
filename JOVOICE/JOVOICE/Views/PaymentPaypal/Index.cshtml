@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageUserlogged.cshtml";
+}
+
+<form action="@Url.Action("Checkout", "Home")" method="post">
+    <button type="submit" class="btn btn-primary">Pay with PayPal</button>
+</form>

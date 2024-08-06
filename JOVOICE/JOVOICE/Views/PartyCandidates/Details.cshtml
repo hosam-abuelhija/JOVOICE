@@ -1,0 +1,99 @@
+﻿@model JOVOICE.Models.PartyCandidate
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PartyCandidate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.partyname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.partyname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.electionarea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.electionarea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.national_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.national_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birthdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.religion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.religion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ordercandidate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ordercandidate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_counter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_counter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempPartyCandidate.electionarea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempPartyCandidate.electionarea)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

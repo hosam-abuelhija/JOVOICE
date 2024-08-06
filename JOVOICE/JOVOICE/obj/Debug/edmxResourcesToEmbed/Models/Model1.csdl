@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ElectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="fk_ads" Type="Int64" />
+    <Property Name="fk_debates" Type="Int64" />
+    <Property Name="fk_feedback" Type="Int64" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IMG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Ad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="areaelection" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="listname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Debate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="listname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="areaelection" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="time" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LocalCandidate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="national_id" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="listname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="type_of_chair" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="gender" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="birthdate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="votes_counter" Type="Int64" />
+    <Property Name="religion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="fk_local_vote" Type="Int64" />
+    <Property Name="electionarea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LocalList">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="listname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="votes_counter" Type="Int64" />
+    <Property Name="electionDistrict" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PartyCandidate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="partyname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="electionarea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="national_id" Type="Int64" />
+    <Property Name="gender" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="birthdate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="religion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ordercandidate" Type="Int64" />
+    <Property Name="fk_counter" Type="Int64" />
+    <Property Name="candidatename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PartyList">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="listname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="votes_counter" Type="Int64" />
+    <Property Name="electionDistrict" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="paymentnew">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cardnumber" Type="Int32" />
+    <Property Name="cvv" Type="Int32" />
+    <Property Name="phone" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TempAd">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="listname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="electionarea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TempCandidateLocal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="national_id" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="listname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="type_of_chair" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="gender" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="birthdate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="votes_counter" Type="Int64" />
+    <Property Name="religion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="fk_admin" Type="Int64" />
+    <Property Name="electionarea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TempDebate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="listname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="areaelection" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="time" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="phoneNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="candidateName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TempPartyCandidate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="national_id" Type="Int64" />
+    <Property Name="electionarea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="partyname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="gender" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="birthdate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="religion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ordercandidate" Type="Int64" />
+    <Property Name="candidatename" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="fk_admin" Type="Int64" />
+    <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="national_id" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="electionarea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="voteLocal" Type="Int64" />
+    <Property Name="voteParty" Type="Int64" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="gender" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="religion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="birthdate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ElectionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Ads" EntityType="Self.Ad" />
+    <EntitySet Name="Debates" EntityType="Self.Debate" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="LocalCandidates" EntityType="Self.LocalCandidate" />
+    <EntitySet Name="LocalLists" EntityType="Self.LocalList" />
+    <EntitySet Name="PartyCandidates" EntityType="Self.PartyCandidate" />
+    <EntitySet Name="PartyLists" EntityType="Self.PartyList" />
+    <EntitySet Name="paymentnews" EntityType="Self.paymentnew" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TempAds" EntityType="Self.TempAd" />
+    <EntitySet Name="TempCandidateLocals" EntityType="Self.TempCandidateLocal" />
+    <EntitySet Name="TempDebates" EntityType="Self.TempDebate" />
+    <EntitySet Name="TempPartyCandidates" EntityType="Self.TempPartyCandidate" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+  </EntityContainer>
+</Schema>

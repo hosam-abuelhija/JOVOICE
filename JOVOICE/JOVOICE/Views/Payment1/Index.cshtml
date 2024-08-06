@@ -1,0 +1,108 @@
+﻿@model JOVOICE.Models.paymentnew
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s">
+                Visa خدمات الدفع
+            </h3>
+            <ol class="breadcrumb justify-content-center text-white mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white">الرئيسية</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-white">صفحات</a></li>
+                <li class="breadcrumb-item active text-secondary">خدمات الدفع</li>
+            </ol>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Services Start -->
+    <div class="container-fluid service overflow-hidden py-5">
+        <div class="container py-5">
+            <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="sub-style">
+                    <h5 class="sub-title text-primary px-3">خدمات الدفع</h5>
+                </div>
+                <h1 class="display-5 mb-4">تسهيل عملية الدفع بنجاح</h1>
+            </div>
+            <div class="container">
+
+                <div class="row ">
+                    <div class="col-lg-7 mx-auto">
+                        <div class="card mt-2 mx-auto p-4 bg-light">
+                            <div class="card-body bg-light">
+
+                                <div class="container">
+                                    <form id="contact-form" role="form" style="text-align:right">
+                                        <div class="controls">
+
+                                            <div class="row">
+                                                @*<div class="col-md-6">
+                                                        <div class="form-group">
+                                                            @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control" } })
+                                                            @Html.ValidationMessageFor(model => model.id, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>*@
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <h4>Name</h4>
+                                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <h4>List Name</h4>
+                                                        @Html.EditorFor(model => model.cardnumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.cardnumber, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.cvv, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.cvv, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="submit" class="btn btn-success btn-send pt-2 btn-block" value="الدفع">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.8 -->
+
+                    </div>
+                    <!-- /.row-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+    <!-- Back to Top -->
+
+}

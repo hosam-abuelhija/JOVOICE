@@ -1,0 +1,35 @@
+﻿@model JOVOICE.Models.LocalList
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LocalList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.listname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.listname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.electionDistrict)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.electionDistrict)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

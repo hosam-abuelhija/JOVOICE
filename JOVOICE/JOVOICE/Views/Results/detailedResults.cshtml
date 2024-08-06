@@ -1,0 +1,297 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "detailedResults";
+    Layout = "~/Views/Shared/_LayoutPageUserlogged.cshtml";
+}
+
+
+<main>
+
+
+    <section>
+        <!--for demo wrap-->
+        <div class=" resultsContainer wow fadeInRight" data-wow-delay="0.3s">
+            <div class="resultsPageTitleContainer">
+
+                <h5 class="sub-title pe-3 resultsPageTitle">أسماء الفائزين</h5>
+            </div>
+        </div>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-active">
+                <thead>
+                    <tr>
+                        <th>الاسم</th>
+                        <th>اسم القائمة</th>
+                        <th>نوع المقعد</th>
+                        <th>عدد أصوات القائمة</th>
+                        <th>عدد أصوات المرشح</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-hover">
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        var rows = String.Join(", ", item);
+
+                        string[] rowArray = rows.Split(',');
+
+                        <tr>
+                            <td>@rowArray[5]</td>
+                            <td>@rowArray[1]</td>
+                            <td>@rowArray[6]</td>
+                            <td>@rowArray[2]</td>
+                            <td>@rowArray[7]</td>
+                        </tr>
+
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <div class="col-12 btnCon">
+        <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="@Url.Action("WomanSeat", new { id = ViewBag.currentID })">مقعد المرأة</a>
+
+
+        @if (ViewBag.currentID == "اربد الثانية")
+        {
+
+            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="@Url.Action("christianSeat", new { id = ViewBag.currentID })">مقعد المسيحي</a>
+        }
+    </div>
+
+
+</main>
+
+
+
+
+@section stylesheet
+    {
+    <style>
+        * {
+            color: black !important;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border: 0.1em solid black;
+            border-collapse: collapse !important;
+            text-align: center !important;
+            direction: rtl !important;
+        }
+
+        .tbl-header {
+            background-color: rgba(255,255,255,0.3);
+            width: 100%;
+            padding-right: 0 !important;
+            margin: 0 !important;
+            text-align: center !important;
+            direction: rtl !important;
+        }
+
+        thead {
+            background-color: rgba(0, 122, 61, 0.2);
+        }
+
+
+        .tbl-content {
+            height: 25em;
+            overflow-x: auto;
+            margin-top: 0px;
+            border: 1px solid rgba(255,255,255,0.3);
+            margin: 0 !important;
+            text-align: center !important;
+            direction: rtl !important;
+        }
+
+        th {
+            padding: 20px 15px !important;
+            text-align: left;
+            font-weight: 500 !important;
+            font-size: 12px !important;
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center !important;
+            direction: rtl !important;
+        }
+
+        td {
+            padding: 15px !important;
+            text-align: left;
+            vertical-align: middle;
+            font-weight: 300 !important;
+            font-size: 12px !important;
+            color: #fff;
+            border-bottom: solid 1px rgba(255,255,255,0.1);
+            text-align: center !important;
+            direction: rtl !important;
+        }
+
+            td:hover {
+                background-color: rgba(206, 17, 39, 0.2);
+            }
+
+
+        /* demo styles */
+
+        section {
+            margin: 50px;
+        }
+
+
+        /* for custom scrollbar for webkit browser*/
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        }
+
+
+
+        .resultsContainer {
+            display: flex !important;
+            justify-content: center !important;
+            width: 100% !important;
+            margin: 3em 0;
+        }
+
+        .resultsPageTitleContainer {
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            color: var(--bs-primary);
+        }
+
+            .resultsPageTitleContainer::before {
+                content: "";
+                width: 100px;
+                position: absolute;
+                bottom: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                margin-bottom: -6px;
+                margin-left: -100px;
+                border: 1px solid #007a3d !important;
+            }
+
+            .resultsPageTitleContainer::after {
+                content: "";
+                width: 50px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                margin-top: -8px;
+                margin-left: -50px;
+                border: 1px solid #ce1127 !important;
+            }
+
+        .resultsPageTitle {
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            color: black;
+            font-size: 3em !important;
+        }
+
+            .resultsPageTitle::before {
+                content: "" !important;
+                width: 100px !important;
+                position: absolute !important;
+                bottom: 50% !important;
+                right: 0 !important;
+                transform: translateY(-50%) !important;
+                margin-bottom: -8px !important;
+                margin-right: -100px !important;
+                border: 1px solid #007a3d !important;
+            }
+
+            .resultsPageTitle::after {
+                content: "";
+                width: 50px;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                margin-top: -6px;
+                margin-right: -50px;
+                border: 1px solid #ce1127 !important;
+            }
+
+
+
+        .btnCon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn.btn-primary {
+            background: rgba(0, 122, 61, 0.2) !important;
+            color: black !important;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            transition: 0.5s;
+            border-color: rgba(0, 122, 61, 0.2) !important;
+        }
+
+        .btn.btn.btn-primary:hover {
+            background: rgba(206, 17, 39, 0.2) !important;
+            color: var(--bs-secondary);
+            border: 1px solid rgba(206, 17, 39, 0.2) !important;
+        }
+
+        .btn.btn-secondary {
+            background: transparent;
+            color: var(--bs-secondary);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            border: none;
+            transition: 0.5s;
+        }
+
+            .btn.btn-secondary:hover {
+                color: var(--bs-primary) !important;
+            }
+    </style>
+}
+
+
+@section scripts
+{
+    <script>
+
+        // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+        $(window).on("load resize ", function () {
+            var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+            $('.tbl-header').css({ 'padding-right': scrollWidth });
+        }).resize();
+
+    </script>
+}
+

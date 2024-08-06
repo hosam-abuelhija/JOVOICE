@@ -1,0 +1,48 @@
+﻿@model IEnumerable<JOVOICE.Models.LocalList>
+
+@{
+    ViewBag.Title = "Local Lists";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<div style="display: flex; justify-content: space-between">
+    <div>
+        <h2>Local Lists</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+    <div>
+        <a  href="@Url.Action("Index", "TempCandidateLocals")" class="btn btn-lg btn-primary m-2">Local Lists Applications</a>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.listname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.electionDistrict)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.listname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.electionDistrict)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

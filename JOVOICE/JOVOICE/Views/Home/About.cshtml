@@ -1,0 +1,417 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - صوت المستقبل</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/Content/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Content/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">انتظر قليلا</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid nav-bar p-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <!-- Login Button on the Left -->
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-primary btn-md-square border-secondary mb-3 mb-md-3 mb-lg-0 me-3" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="@Url.Action("ResetPassword", "Home")" class="btn btn-primary border-secondary rounded-pill py-2 px-4 px-lg-3 mb-3 mb-md-3 mb-lg-0">تسجيل دخول</a>
+                </div>
+
+                <!-- Navigation Buttons in the Middle -->
+                <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="@Url.Action("Index", "Home")" class="nav-item nav-link ">الرئيسية</a>
+                        <a href="@Url.Action("About", "Home")" class="nav-item nav-link active">من نحن</a>
+                        <a href="@Url.Action("Services", "Home")" class="nav-item nav-link">خدماتنا</a>
+                        <a href="@Url.Action("Contact", "Home")" class="nav-item nav-link">تواصل معنا</a>
+                    </div>
+                </div>
+
+                <!-- Logo and Company Name on the Right -->
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand p-0">
+                    <h1 class="display-5 text-secondary m-0">
+                        <img src="~/Content/img/logo-removebg-preview_2.png" alt="" style="height: 150px;">
+                    </h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- Navbar & Hero End -->
+    <!-- Modal Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h4 class="modal-title text-secondary mb-0" id="exampleModalLabel">Search by keyword</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input type="search" class="form-control p-3" placeholder="ابحث" aria-describedby="search-icon-1">
+                        <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Search End -->
+    <!-- Carousel Start -->
+    <div class="carousel-header">
+        <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img src="~/Content/img/المجلس النيابي.jpg" class="img-fluid" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="text-center p-4" style="max-width: 900px;">
+                            <h1 class="display-1 text-capitalize text-white mb-3 mb-md-4 wow fadeInUp" data-wow-delay="0.3s"> من نحن</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/img/علم الاردن.jpg" class="img-fluid" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="text-center p-4" style="max-width: 900px;">
+                            <h1 class="display-1 text-capitalize text-white mb-3 mb-md-4 wow fadeInUp" data-wow-delay="0.3s"></h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-secondary wow fadeInLeft" data-wow-delay="0.2s" aria-hidden="false"></span>
+                <span class="visually-hidden-focusable">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-secondary wow fadeInRight" data-wow-delay="0.2s" aria-hidden="false"></span>
+                <span class="visually-hidden-focusable">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
+    <!-- About Start -->
+    <div class="container-fluid py-5" style="direction: rtl;">
+        <div class="container py-5" style="direction: rtl;">
+            <div class="row g-5" style="direction: rtl;">
+                <div class="col-xl-5 wow fadeInLeft" data-wow-delay="0.1s" style="direction: rtl;">
+                    <div class="bg-light rounded" style="direction: rtl;">
+                        <img src="~/Content/img/شعار الاردن.png" class="img-fluid w-100" style=" direction: rtl; height: 500px " alt="Image" />
+                    </div>
+                </div>
+                <div class="col-xl-7 wow fadeInRight" data-wow-delay="0.3s" style="direction: rtl;">
+                    <h5 class="@*sub-title pe-3*@" style="direction: rtl;">من نحن</h5>
+                    <h1 class="display-5 mb-4" style="direction: rtl;">نسعى لتقديم تجربة انتخابية سلسة وآمنة من خلال التكنولوجيا الحديثة</h1>
+                    <p class="mb-4" style="direction: rtl;">يهدف موقعنا إلى تسهيل وصول المواطنين إلى جميع المعلومات المتعلقة بالانتخابات، بما في ذلك تفاصيل المرشحين، جدول الانتخابات، نتائج التصويت، والإجراءات القانونية ذات الصلة. نحن نلتزم بتوفير منصة آمنة وسهلة الاستخدام تضمن أن تكون عملية التصويت بسيطة وفعالة.</p>
+                    <div class="row gy-4 align-items-center" style="direction: rtl;">
+                        <div class="col-12 col-sm-6 d-flex align-items-center" style="direction: rtl;">
+                            <i class="fa-solid fa-box fa-3x text-secondary p-3" style="direction: rtl;"></i>
+                            <h5 class="ms-4" style="direction: rtl;">توافر خدمات التصويت الإلكتروني</h5>
+                        </div>
+                        <div class="col-12 col-sm-6 d-flex align-items-center" style="direction: rtl;">
+                            <i class="fa-solid fa-book fa-3x text-secondary p-3" style="direction: rtl;"></i>
+                            <h5 class="ms-4" style="direction: rtl;">إرشادات حول عملية التسجيل</h5>
+                        </div>
+                        <div class="col-4 col-md-3" style="direction: rtl;">
+                            <div class="bg-light text-center rounded p-3" style="direction: rtl;">
+                                <div class="mb-2" style="direction: rtl;">
+                                    <i class="fas fa-ticket-alt fa-4x text-primary" style="direction: rtl;"></i>
+                                </div>
+                                <h1 class="display-5 fw-bold mb-2" style="direction: rtl;">٣٤</h1>
+                                <p class="text-muted mb-0" style="direction: rtl;">سنة من الخبرة</p>
+                            </div>
+                        </div>
+                        <div class="col-8 col-md-9" style="direction: rtl;">
+                            <div class="mb-5" style="direction: rtl;">
+                                <p class="text-primary h6 mb-3" style="direction: rtl;"><i class="fa fa-check-circle text-secondary me-2" style="direction: rtl;"></i> الشفافية في العمل</p>
+                                <p class="text-primary h6 mb-3" style="direction: rtl;"><i class="fa fa-check-circle text-secondary me-2" style="direction: rtl;"></i> تنفيذ أسرع وأضمن</p>
+                                <p class="text-primary h6 mb-3" style="direction: rtl;"><i class="fa fa-check-circle text-secondary me-2" style="direction: rtl;"></i>أنظمة متطورة لضمان نتائج صحيحة و دقيقة</p>
+                            </div>
+                            <div class="d-flex flex-wrap" style="direction: rtl;">
+                                <div id="phone-tada" class="d-flex align-items-center justify-content-center me-4" style="direction: rtl;">
+                                    <a href="" class="position-relative wow tada" data-wow-delay=".9s" style="direction: rtl;">
+                                        <i class="fa fa-phone-alt text-primary fa-3x" style="direction: rtl;"></i>
+                                        <div class="position-absolute" style="top: 0; left: 25px; direction: rtl;">
+                                            <span><i class="fa fa-comment-dots text-secondary" style="direction: rtl;"></i></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="d-flex flex-column justify-content-center" style="direction: rtl;">
+                                    <span class="text-primary" style="direction: rtl;">هل لديك أي اسئلة ؟</span>
+                                    <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px; direction:rtl">
+                                        &#1632;&#1633;&#1634;&#1635;&#1636;&#1637;&#1638;&#1639;
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+    <!-- Counter Facts Start -->
+    <div class="container-fluid counter-facts py-5" style="background: none;">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="counter">
+                        <div class="counter-icon">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <div class="counter-content">
+                            <h3>نسب المشاركة</h3>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="counter-value" data-toggle="counter-up">90</span>
+                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">%</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="counter">
+                        <div class="counter-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="counter-content">
+                            <h3>نسب التصويت الإلكتروني مقابل التصويت التقليدي</h3>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="counter-value" data-toggle="counter-up">85</span>
+                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">%</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="counter">
+                        <div class="counter-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="counter-content">
+                            <h3>نسب الأصوات</h3>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="counter-value" data-toggle="counter-up">75</span>
+                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">%</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="counter">
+                        <div class="counter-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="counter-content">
+                            <h3>نسب المساهمة في الحملات الانتخابية</h3>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="counter-value" data-toggle="counter-up">50</span>
+                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">%</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Counter Facts End -->
+    <!-- Features Start -->
+    <div class="container-fluid features overflow-hidden py-5">
+        <div class="container">
+            <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="sub-style">
+                    <h5 class="sub-title text-primary px-3">معلومات ذات صلة</h5>
+                </div>
+                <h1 class="display-5 mb-4">الانتخابات النيابية وتفاصيلها</h1>
+                <p class="mb-0">م</p>
+            </div>
+            <div class="row g-4 justify-content-center text-center">
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="feature-item text-center p-4">
+                        <div class="feature-icon p-3 mb-4">
+                            <i class="fa-solid fa-book fa-4x text-primary"></i>
+                        </div>
+                        <div class="feature-content d-flex flex-column">
+                            <h5 class="mb-3"> شروط الترشح للقائمة المحلية</h5>
+                            <p class="mb-3">اقرأ عن شروط وكيفية الترشح للقائمة المحلية</p>
+                            <a class="btn btn-secondary rounded-pill" href="~/downloads/شروط ومرفقات طلب الترشح للدائرة الانتخابية (المحلية) 2024_1.pdf" download="القائمة_المحلية.pdf">اقرأ هنا<i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="feature-item text-center p-4">
+                        <div class="feature-icon p-3 mb-4">
+                            <i class="fa-solid fa-book fa-4x text-primary"></i>
+                        </div>
+                        <div class="feature-content d-flex flex-column">
+                            <h5 class="mb-3">شروط الترشح للقائمة الحزبية</h5>
+                            <p class="mb-3">اقرأ عن شروط وكيفية الترشح للقائمة الحزبية</p>
+                            <a class="btn btn-secondary rounded-pill" href="~/downloads/شروط ومرفقات طلب الترشح للدائرة الانتخابية (العامة) 2024_1.pdf" download="القائمة_العامة.pdf">اقرأ هنا<i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="feature-item text-center p-4">
+                        <div class="feature-icon p-3 mb-4">
+                            <i class="fa-solid fa-book fa-4x text-primary"></i>
+                        </div>
+                        <div class="feature-content d-flex flex-column">
+                            <h5 class="mb-3">تقسيم الدوائر الانتخابية</h5>
+                            <p class="mb-3">اقرأ هنا كيفية تقسيم الدوائر المحلية في الاردن</p>
+                            <a class="btn btn-secondary rounded-pill" href="~/downloads/تقسيم الدوائر الانتخابية.pdf" download="تقسيم_الدوائر_الانتخابية.pdf">اقرأ هنا<i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="feature-item text-center p-4">
+                        <div class="feature-icon p-3 mb-4">
+                            <i class="fa-solid fa-book fa-4x text-primary"></i>
+                        </div>
+                        <div class="feature-content d-flex flex-column">
+                            <h5 class="mb-3">قانون الانتخاب لمجلس النواب</h5>
+                            <p class="mb-3">اقرأ هنا عن قانون الانتخاب لمجلس النواب وتعديلاته</p>
+                            <a class="btn btn-secondary rounded-pill" href="~/downloads/قانون الانتخاب لمجلس النواب وتعديله.pdf" download="قانون_الانتخاب.pdf">اقرأ هنا<i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="#">اقرأ المزيد من المعلومات</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Features End -->
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-4">
+
+                <!-- "من نحن" Section with Logo Below -->
+                <div class="col-md-6 col-lg-6 col-xl-3 order-xl-3">
+                    <div class="footer-item text-center">
+                        <img src="~/Content/img/logo-removebg-preview_2.png" class="img-fluid mb-3" alt="Logo" style="max-width: 200px; max-height: 200px;">
+                        <p class="text-white mb-0">
+                            منصة صوت الأردن تقدم خدمات الانتخابات النيابية، البلدية، والمدرسية مع واجهة موثوقة وسهلة الاستخدام.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Us Section -->
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-secondary mb-4">تواصل معنا</h4>
+                        <a href=""><i class="fa fa-map-marker-alt me-2"></i> عمان, الاردن</a>
+                        <a href=""><i class="fas fa-envelope me-2"></i> jordanvoive@gmail.com</a>
+                        <a href=""><i class="fas fa-phone me-2"></i> +012 345 67890</a>
+                        <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-share fa-2x text-secondary me-2"></i>
+                            <a class="btn mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add the section from the navbar -->
+                <div class="col-md-6 col-lg-6 col-xl-3 order-xl-1">
+                    <div class="footer-item">
+                        <h4 class="text-secondary mb-4">أقسامنا</h4>
+                        <a href="@Url.Action("Index", "Home")" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> الرئيسية</a>
+                        <a href="@Url.Action("About", "Home")" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> من نحن</a>
+                        <a href="@Url.Action("Services", "Home")" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> خدماتنا</a>
+                        <a href="feature.html" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> ميزاتنا</a>
+                        <a href="countries.html" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> الدول</a>
+                        <a href="testimonial.html" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> رأي عملائنا</a>
+                        <a href="training.html" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> تدريب</a>
+                        <a href="contact.html" class="d-block text-white mb-0"><i class="fas fa-angle-right me-2"></i> تواصل معنا</a>
+                    </div>
+                </div>
+
+                <!-- Services Section -->
+                <div class="col-md-6 col-lg-6 col-xl-3 order-xl-2">
+                    <div class="footer-item">
+                        <h4 class="text-secondary mb-4">خدماتنا</h4>
+                        <a href="@Url.Action("Services", "Home")" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> الانتخابات النيابية</a>
+                        <a href="@Url.Action("Services", "Home")" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> الانتخابات الجامعية</a>
+                        <a href="@Url.Action("Services", "Home")" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> الانتخابات المدرسية</a>
+                        <a href="@Url.Action("Services", "Home")" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> المناظرات</a>
+                        <a href="@Url.Action("Services", "Home")" class="d-block text-white mb-2"><i class="fas fa-angle-right me-2"></i> الاعلانات</a>
+                        <a href="@Url.Action("Services", "Home")" class="d-block text-white mb-0"><i class="fas fa-angle-right me-2"></i> تنظيم الحملات</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/lib/wow/wow.min.js"></script>
+    <script src="~/Content/lib/easing/easing.min.js"></script>
+    <script src="~/Content/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/Content/lib/counterup/counterup.min.js"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="~/Content/js/main.js"></script>
+
+    <script src='~/Content/js/plugins.js'></script>
+    <script src='~/Content/js/function.js'></script>
+
+</body>
+
+</html>
